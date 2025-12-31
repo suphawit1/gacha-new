@@ -5,9 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-
-  experimental: {
-  },
+  basePath: '/gacha-new', 
+  assetPrefix: '/gacha-new/', 
 };
 
 export default nextConfig;
