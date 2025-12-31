@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: false,
-  reactCompiler: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+
   experimental: {
-    allowedDevOrigins: [
-      'gacha.telemedicproject.dpdns.org',
-      'api-gacha.telemedicproject.dpdns.org'
-    ]
-  }
+  },
 };
 
 export default nextConfig;
