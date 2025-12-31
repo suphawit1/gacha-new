@@ -19,9 +19,10 @@ interface GachaItem {
 
 const FPS = 30;
 const f2s = (frame: number) => frame / FPS; // 🔥 แก้ Error: frame: number
+const BASE_PATH = '/gacha-new';
 
 function TestCharacter({ position, rotation, isRevealed, rank }: { position: any, rotation: any, isRevealed: boolean, rank: string }) {
-  const { scene } = useGLTF('/models/El.glb');
+  const { scene } = useGLTF(`${BASE_PATH}/models/El.glb`);
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const lightRef = useRef<THREE.SpotLight>(null);
 
@@ -79,7 +80,7 @@ function TestCharacter({ position, rotation, isRevealed, rank }: { position: any
 }
 
 function GachaScene3D({ stepIndex, results }: { stepIndex: number, results: GachaItem[] }) {
-  const { scene, animations, nodes } = useGLTF('/models/stage.glb') as any;
+  const { scene, animations, nodes } = useGLTF(`${BASE_PATH}/models/stage.glb`) as any;
   const { actions, names } = useAnimations(animations, scene);
   const { set, size } = useThree();
 
@@ -179,10 +180,10 @@ export default function UmaGachaBase() {
   const actionMusic = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    homeMusic.current = new Audio('/Game OST Uma Musume - Gacha Menu.mp3');
+    homeMusic.current = new Audio(`${BASE_PATH}/Game OST Uma Musume - Gacha Menu.mp3`);
     homeMusic.current.loop = true;
     homeMusic.current.volume = 0.3;
-    actionMusic.current = new Audio('/Game OST Uma Musume Pretty Derby - Character Gacha.mp3');
+    actionMusic.current = new Audio(`${BASE_PATH}/Game OST Uma Musume Pretty Derby - Character Gacha.mp3`);
     actionMusic.current.loop = true;
     actionMusic.current.volume = 0.5;
     return () => {
