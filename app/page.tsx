@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, Suspense, useEffect, useRef, useLayoutEffect, useMemo } from 'react';
@@ -237,7 +238,7 @@ export default function UmaGachaBase() {
           <motion.div key="main" className="relative z-10 flex h-full flex-col p-6 text-center bg-[#f0f4f8]">
             <div className="mt-4"><div className="inline-block rounded-full bg-white/80 px-6 py-2 font-black text-blue-600 border-2 border-blue-200 text-lg italic">HAPPY NEW YEAR 2026</div></div>
             <div className="mt-8 flex-grow rounded-3xl bg-white shadow-2xl border-4 border-white overflow-hidden relative">
-              <img src="/Banner.jpg" className="h-full w-full object-cover" alt="Banner" />
+              <img src={`${BASE_PATH}/Banner.jpg`} className="h-full w-full object-cover" alt="Banner" />
             </div>
             <div className="mt-8 mb-8"><button onClick={startGacha} className="w-full h-20 rounded-2xl bg-gradient-to-r from-[#ff4757] to-[#ff7f50] border-b-8 border-[#c44141] font-black text-2xl text-white active:translate-y-1 active:border-b-4 transition-all">Gacha Draw!</button></div>
           </motion.div>
